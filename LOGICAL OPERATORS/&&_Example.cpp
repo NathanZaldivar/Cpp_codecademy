@@ -9,5 +9,4 @@ int main() {
   if (hunger && anger) {
     std::cout << "Hangry";
   }
-  
 }

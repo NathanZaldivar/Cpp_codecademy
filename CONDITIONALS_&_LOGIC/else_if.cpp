@@ -1,7 +1,6 @@
 #include <iostream>
 
 int main() {
-  
   double ph = 4.6;
   
   // Write the if, else if, else here:

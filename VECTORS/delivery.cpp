@@ -16,14 +16,7 @@ int main() {
   
   for (int i = 0; i < delivery_order.size(); i++) {
     total += delivery_order[i];
-    std::cout << total << "\n";
 
   }
-  
-  
-  
-  
-  
-  
-  
+  std::cout << "Total: " << total << "\n";
 }

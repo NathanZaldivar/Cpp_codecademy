@@ -14,21 +14,25 @@ int main() {
 
   while (answer != codeword && misses < 7) {
 
-    char letter = input_str("Letter: ");
+    char choice = input_char("Letter: ");
 
+    int ind = index(codeword, choice);
 
+    if (ind == -1) {
 
+      print("WRONG!");
 
+      misses++;
 
+    } else {
 
+      answer = replace_char(answer, choice, ind);
 
+      print(answer);
 
+      print("CORRECT!");
 
-
-
-
-
-    misses++;
+    }
 
   }
 

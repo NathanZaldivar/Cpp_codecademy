@@ -1,29 +1,13 @@
+// python++ template
+// Header file for ttt.cpp, ttt_functions.cpp
+
+
 #include <iostream>
 #include <vector>
 
 
 
-// Simple print function
-template <typename T>
-void print(T string, bool new_line = true) {
 
-  if (new_line == true) {
-
-    std::cout << string << "\n";
-
-  } else {
-
-    std::cout << string;
-
-  }
-}
-
-template <typename T>
-void long_print(T string) {
-
-  std::cout << "\n\n" << string << "\n\n";
-
-}
 
 template <typename T>
 int index(T data, char character, int skip_int = 0) {
@@ -75,21 +59,40 @@ int index(T data, int character, int skip_int = 0) {
 
 }
 
+// Python++ functions
 char input(std::string input_string, char type);
 char lower(char character);
 
-void greet();
-void display_misses(int misses);
 void hide();
+//// Overloaded PRINT!!!!
+void print(std::vector<int> data, bool new_line = false, bool no_seperator = false);
+void print(std::vector<std::string> data, bool new_line = false, bool no_seperator = false);
+void print(std::vector<char> data, bool new_line = false, bool no_seperator = false);
+void print(int data, bool new_line = true);
+void print(std::string data, bool new_line = true);
+void print(char data, bool new_line = true);
 
 int intcur(std::string string_data, char character);
 int input(std::string input_string, int type);
+int coin_flip();
 
-std::string codeword_ghost(std::string codeword);
-std::string codeword_chooser();
 std::string input(std::string input_string, std::string type);
 std::string str(int integer);
 std::string replace_char(std::string selected_string, char character, int position);
 std::string replace_all(std::string selected_string, char character, char selected_character);
-std::string answer_builder(std::string answer, std::string codeword, char choice);
 std::string lower(std::string string);
+
+
+
+// Main files functions
+
+void greet();
+
+int winner(std::vector<int> data);
+int win_search(std::vector<int> data);
+
+std::string grid_builder(std::vector<int> data);
+
+std::vector<int> grid_update(std::vector<int> data, int column, int row, int turn);
+std::vector<int> column_convert(std::vector<int> data);
+std::vector<int> diagonal_convert(std::vector<int> data);

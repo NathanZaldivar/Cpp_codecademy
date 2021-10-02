@@ -3,6 +3,189 @@
 #include <stdlib.h>
 #include "header.hpp" // default header file name
 
+int index(std::string data, char character, int skip_int) {
+
+  int interval = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character) {
+
+      if (interval == skip_int) {
+
+        return i;
+
+      } else {
+
+        interval++;
+
+      }
+    }
+  }
+
+  return -1;
+
+}
+
+int index(std::string data, int character_int, int skip_int) {
+ 
+  
+  character = str(character_int);
+  int interval = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character) {
+
+      if (interval == skip_int) {
+
+        return i;
+
+      } else {
+
+        interval++;
+
+      }
+    }
+  }
+
+  return -1;
+
+}
+
+int index(std::string data, std::string character, int skip_int) {
+
+  int interval = 0;
+  int size = 0; // used to detirmine the exact size index needs to look for in the string, will be changed in the loop
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character[size]) {
+      
+      size++;
+
+    } else {
+      
+      size = 0;
+      continue;
+     
+     if (size == data.size() && interval == skip_int) {
+       
+       return i - (size - 1);
+       
+     } else if (size != data.size()) {
+       
+       continue;
+ 
+     } else {
+       
+       interval++;
+       size = 0;
+     
+     }
+    }
+  }
+
+  return -1;
+
+}
+
+int index(std::vector<std::string> data, char character, int skip_int) {
+
+  int interval = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character) {
+
+      if (interval == skip_int) {
+
+        return i;
+
+      } else {
+
+        interval++;
+
+      }
+    }
+  }
+
+  return -1;
+
+}
+
+
+int index(std::vector<std::string> data, std::string character, int skip_int) {
+
+  int interval = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character) {
+
+      if (interval == skip_int) {
+
+        return i;
+
+      } else {
+
+        interval++;
+
+      }
+    }
+  }
+
+  return -1;
+
+}
+
+int index(std::vector<std::char> data, char character, int skip_int) {
+
+  int interval = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character) {
+
+      if (interval == skip_int) {
+
+        return i;
+
+      } else {
+
+        interval++;
+
+      }
+    }
+  }
+
+  return -1;
+
+}
+
+int index(std::vector<std::int> data, int character, int skip_int) {
+
+  int interval = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character) {
+
+      if (interval == skip_int) {
+
+        return i;
+
+      } else {
+
+        interval++;
+
+      }
+    }
+  }
+
+  return -1;
+
+}
 
 // a simple coin flip
 int coin_flip() {

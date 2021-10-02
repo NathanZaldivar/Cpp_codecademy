@@ -2,60 +2,6 @@
 #include <iostream>
 #include <vector>
 
-
-
-
-
-template <typename T>
-int index(T data, char character, int skip_int = 0) {
-
-  int interval = 0;
-
-  for (int i = 0; i < data.size(); i++) {
-
-    if (data[i] == character) {
-
-      if (interval == skip_int) {
-
-        return i;
-
-      } else {
-
-        interval++;
-
-      }
-    }
-  }
-
-  return -1;
-
-}
-
-template <typename T>
-int index(T data, int character, int skip_int = 0) {
-
-  int interval = 0;
-
-  for (int i = 0; i < data.size(); i++) {
-
-    if (data[i] == character) {
-
-      if (interval == skip_int) {
-
-        return i;
-
-      } else {
-
-        interval++;
-
-      }
-    }
-  }
-
-  return -1;
-
-}
-
 // Python++ functions
 char input(std::string input_string, char type);
 char lower(char character);

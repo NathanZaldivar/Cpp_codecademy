@@ -18,9 +18,7 @@ void print(char data, bool new_line = true);
 
 //// index family
 int index(std::string data, char character, int skip_int = 0);
-int index(std::string data, int character_int, int skip_int = 0);
 int index(std::string data, std::string character, int skip_int = 0);
-int index(std::vector<std::string> data, char character, int skip_int = 0);
 int index(std::vector<std::string> data, std::string character, int skip_int = 0);
 int index(std::vector<char> data, char character, int skip_int = 0);
 int index(std::vector<int> data, int character, int skip_int = 0);

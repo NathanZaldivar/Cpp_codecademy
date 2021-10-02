@@ -27,32 +27,6 @@ int index(std::string data, char character, int skip_int) {
 
 }
 
-int index(std::string data, int character_int, int skip_int) {
- 
-  
-  character = str(character_int);
-  int interval = 0;
-
-  for (int i = 0; i < data.size(); i++) {
-
-    if (data[i] == character) {
-
-      if (interval == skip_int) {
-
-        return i;
-
-      } else {
-
-        interval++;
-
-      }
-    }
-  }
-
-  return -1;
-
-}
-
 int index(std::string data, std::string character, int skip_int) {
 
   int interval = 0;
@@ -90,30 +64,6 @@ int index(std::string data, std::string character, int skip_int) {
 
 }
 
-int index(std::vector<std::string> data, char character, int skip_int) {
-
-  int interval = 0;
-
-  for (int i = 0; i < data.size(); i++) {
-
-    if (data[i] == character) {
-
-      if (interval == skip_int) {
-
-        return i;
-
-      } else {
-
-        interval++;
-
-      }
-    }
-  }
-
-  return -1;
-
-}
-
 
 int index(std::vector<std::string> data, std::string character, int skip_int) {
 
@@ -139,7 +89,7 @@ int index(std::vector<std::string> data, std::string character, int skip_int) {
 
 }
 
-int index(std::vector<std::char> data, char character, int skip_int) {
+int index(std::vector<char> data, char character, int skip_int) {
 
   int interval = 0;
 
@@ -163,7 +113,7 @@ int index(std::vector<std::char> data, char character, int skip_int) {
 
 }
 
-int index(std::vector<std::int> data, int character, int skip_int) {
+int index(std::vector<int> data, int character, int skip_int) {
 
   int interval = 0;
 

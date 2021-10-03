@@ -23,14 +23,15 @@ int index(std::vector<std::string> data, std::string character, int skip_int = 0
 int index(std::vector<char> data, char character, int skip_int = 0);
 int index(std::vector<int> data, int character, int skip_int = 0);
 //// index family
+int intcur(std::string data, std::string character);
 int intcur(std::string string_data, char character);
 int input(std::string input_string, int type);
 int coin_flip();
 
 std::string input(std::string input_string, std::string type);
 std::string str(int integer);
-std::string replace_char(std::string selected_string, char character, int position);
 std::string replace_all(std::string selected_string, char character, char selected_character);
+std::string replace_all(std::string selected_string, std::string character, std::string selected_character);
 std::string lower(std::string string);
 
 

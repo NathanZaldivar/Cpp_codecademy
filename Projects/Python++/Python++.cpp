@@ -3,6 +3,18 @@
 #include <stdlib.h>
 #include "header.hpp" // default header file name
 
+
+
+
+
+//// START OF INDEX FAMILY
+//
+// Function checks:
+// index(string, char, int) : PASSED
+// index(string, string, int) : PASSED
+// index(vector<string>, string, int) : PASSED
+// index(vector<char>, char, int) : PASSED
+// index(vector<int>, int, int) : PASSED
 int index(std::string data, char character, int skip_int) {
 
   int interval = 0;
@@ -26,11 +38,11 @@ int index(std::string data, char character, int skip_int) {
   return -1;
 
 }
-
+// Similar to pythons index() where index() will return the first index of the character in the data.
 int index(std::string data, std::string character, int skip_int) {
 
   int interval = 0;
-  int size = 0; // used to detirmine the exact size index needs to look for in the string, will be changed in the loop
+  int size = 0;
 
   for (int i = 0; i < data.size(); i++) {
 
@@ -137,19 +149,17 @@ int index(std::vector<int> data, int character, int skip_int) {
   return -1;
 
 }
+//// END OF INDEX FAMILY
 
-// a simple coin flip
-int coin_flip() {
-
-  srand (time(NULL));
-
-  int flip = rand() % 2;
-
-  return flip;
-
-}
-
-
+//// START OF PRINT FAMILY
+//
+// Function check:
+// print(vector<int>, bool, bool) : PASSED
+// print(vector<string>, bool, bool) : PASSED
+// print(vector<char>, bool, bool) : PASSED
+// print(int, bool) : PASSED
+// print(string, bool) : PASSED
+// print(char, bool) : PASSED
 void print(std::vector<int> data, bool new_line, bool no_seperator) {
 
   for (int i = 0; i < data.size(); i++) {
@@ -257,7 +267,10 @@ void print(char data, bool new_line) {
 
   }
 }
+//// END OF PRINT FAMILY
 
+// Function check:
+// hide() : PASSED (No example needed)
 void hide() {
   //Bad way to do this but hiding input is really complicated and im not trying to do all that.
 
@@ -302,7 +315,8 @@ char lower(char character) {
   return lower[ind];
 
 }
-
+//// START OF REPLACE FAMILY
+//
 // Replaces all matching characters with selected character
 // TESTS:
 // Function check PASSED : replace_all("hello", 'l', 'b') == "hebbo"
@@ -327,30 +341,45 @@ std::string replace_all(std::string selected_string, char character, char select
 
 }
 
-// Replaces one character in a string, position is the location of which to replace the character
-// TESTS:
-// Function check PASSED : replace_char("hello", 'b', 2) == "heblo"
-std::string replace_char(std::string selected_string, char character, int position) {
+std::string replace_all(std::string selected_string, std::string character, std::string selected_character) {
+ 
+ int ocur = intcur(selected_string, character);
+ int index_interval = 0;
+ std::vector<int> index_list;
+ std::string results;
 
-  std::string results;
+ for (int i = 0; i < ocur; i++) {
 
-  for (int i = 0; i < selected_string.size(); i++) {
+  index_list.push_back(index(selected_string, character, i));
+ 
+ }
 
-    if (i == position) {
+ for (int i = 0; i < selected_string.size(); i++) {
 
-      results += character;
+  if (i == index_list[index_interval]) {
+   
+   results += selected_character;
+   i += character.size() - 1;
 
-    } else {
+   if (index_interval < index_list.size()) {
 
-      results += selected_string[i];
+    index_interval++;
 
-    }
+   }
+  } else {
+   
+    results += selected_string[i];
+ 
   }
+ }
 
-  return results;
+ return results;
 
 }
+//// END OF REPLACE FAMILY
 
+//// START OF INPUT FAMILY
+//
 // expected string input, second parameter must the expected data type, see examples.
 //
 // example outcomes of function check:
@@ -399,19 +428,20 @@ int input(std::string input_string, int type) {
   return input;
 
 }
+//// END OF INPUT FAMILY
 
-// MSGSOCK007
-
+//// START OF INTCUR FAMILY
+//
 // Finds all occurences
 // TESTS:
 // Function check PASSED : intcur("hello", 'l') == 2
-int intcur(std::string string_data, char character) {
+int intcur(std::string data, char character) {
 
   int results = 0;
 
-  for (int i = 0; i < string_data.size(); i++) {
+  for (int i = 0; i < data.size(); i++) {
 
-    if (string_data[i] == character) {
+    if (data[i] == character) {
 
       results++;
 
@@ -422,11 +452,61 @@ int intcur(std::string string_data, char character) {
 
 }
 
+// Strings index reused and repurposed for intcur
+int intcur(std::string data, std::string character) {
+
+  int size = 0;
+  int results = 0;
+
+  for (int i = 0; i < data.size(); i++) {
+
+    if (data[i] == character[size]) {
+      
+      size++;
+
+    } else {
+      
+      size = 0;
+      continue;
+      
+    }
+     
+    if (size == character.size()) {
+       
+      results++;
+      size = 0;
+       
+    }
+ }
+ 
+
+ return results;
+
+}
+//// END OF INTCUR FAMILY
+
+//// MISC
 // Function check PASSED : str(2) == "2"
+// Function check PASSED : coin_flip() == 1 | 0
 std::string str(int integer) {
 
   std::string results = std::to_string(integer);
 
   return results;
 
+
 }
+
+int coin_flip() {
+
+  srand (time(NULL));
+
+  int flip = rand() % 2;
+
+  return flip;
+
+}
+
+
+
+//// MISC

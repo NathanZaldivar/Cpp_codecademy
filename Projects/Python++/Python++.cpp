@@ -42,23 +42,24 @@ int index(std::string data, std::string character, int skip_int) {
       
       size = 0;
       continue;
+      
+    }
      
-     if (size == data.size() && interval == skip_int) {
+    if (size == character.size() && interval == skip_int) {
        
-       return i - (size - 1);
+      return i - (size - 1);
        
-     } else if (size != data.size()) {
+    } else if (size != character.size()) {
        
-       continue;
+      continue;
  
-     } else {
+    } else {
        
-       interval++;
-       size = 0;
+      interval++;
+      size = 0;
      
      }
     }
-  }
 
   return -1;
 
